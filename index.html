@@ -272,12 +272,15 @@ h2 .serif{font-style:italic}
 .clip .pub-n{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7a5b26;border-bottom:1px solid #1d1a1433;padding-bottom:6px}
 .clip b{font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.15}
 .clip em{font-style:normal;font-family:var(--mono);font-size:11px;color:#7a5b26;margin-top:auto}
-.ussrc{position:relative;border-radius:22px;overflow:hidden;min-height:420px;border:1px solid var(--line2);box-shadow:0 40px 80px -40px #000}
-.ussrc>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
-.nasa:hover .ussrc>img{transform:scale(1.06)}
-.ussrc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#0a0f22e6)}
-.ussrc figcaption{position:absolute;left:16px;right:16px;bottom:16px;z-index:1;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11.5px}
-.ussrc figcaption img{height:40px;width:auto;background:#fff;border-radius:8px;padding:4px 6px}
+.ussrc{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1.25fr 1fr;gap:10px;min-height:520px}
+.ussrc .g{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 30px 60px -35px #000;background:#0b1029}
+.ussrc .g.main{grid-column:1/-1}
+.ussrc .g>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.ussrc .g:hover>img{transform:scale(1.08)}
+.ussrc .g::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,#0a0f22d9);pointer-events:none}
+.ussrc .gl{position:absolute;left:10px;bottom:8px;z-index:1;font-family:var(--mono);font-size:10.5px;color:#fff}
+.ussrc figcaption{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11.5px}
+.ussrc figcaption img{height:38px;width:auto;background:#fff;border-radius:8px;padding:4px 6px}
 .big17{font-size:clamp(90px,13vw,170px);font-weight:600;letter-spacing:-.06em;line-height:.85}
 .big17 small{display:block;font-size:14px;letter-spacing:0;font-weight:400;color:var(--muted);margin-top:14px;font-family:var(--mono)}
 .orbit{position:relative;width:200px;height:200px;flex:none}
@@ -294,7 +297,10 @@ h2 .serif{font-style:italic}
 .box h4{font-family:var(--mono);font-size:12.5px;letter-spacing:.18em;color:var(--a3);text-transform:uppercase;margin-bottom:22px}
 .pub{padding:20px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:58px 1fr;gap:16px}
 .pub:first-of-type{border-top:0;padding-top:0}
-.pub .yr{font-family:var(--mono);font-size:12px;color:var(--a1);padding-top:4px}
+.pub{grid-template-columns:64px 1fr}
+.pub .yr{width:58px;height:58px;border-radius:14px;background:#fff;display:grid;place-items:center;overflow:hidden}
+.pub .yr img{width:36px;height:36px;object-fit:contain}
+.pub .yr b.mono-logo{margin:0;font-family:var(--mono);font-size:10px;font-weight:700;color:#1e3a8a;letter-spacing:.02em}
 .pub b{display:block;font-weight:500;font-size:17px;line-height:1.35;margin-bottom:6px}
 .pub span{font-size:13.5px;color:var(--muted)}
 .pub .venue{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:6px;background:#8b9cff1a;color:var(--a1)}
@@ -336,7 +342,7 @@ h2 .serif{font-style:italic}
 .ed .seal.torch{background:#57068c;border:1px solid #ffffff55;width:58px;height:66px}
 .ed .seal.torch img{width:30px;height:44px}
 .ed.nyu .info{position:relative}
-.ed.nyu .info::after{content:"";position:absolute;right:20px;bottom:-30px;width:170px;height:245px;background:url("https://upload.wikimedia.org/wikipedia/commons/8/89/Nyu_stacked_white.svg") no-repeat center/contain;opacity:.05;pointer-events:none}
+.ed.nyu .info::after{content:"";position:absolute;right:24px;bottom:22px;width:150px;height:216px;background:url("https://upload.wikimedia.org/wikipedia/commons/8/89/Nyu_stacked_white.svg") no-repeat center/contain;opacity:.05;pointer-events:none}
 .ed .seal b{font-weight:700;font-size:15px;color:#0d2a6e;letter-spacing:.02em}
 .ed .school{font-family:var(--sans);font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;line-height:1.35}
 .ed .school small{display:block;font-family:var(--mono);font-weight:400;font-size:11.5px;letter-spacing:.06em;text-transform:none;opacity:.75;margin-top:3px}
@@ -390,10 +396,14 @@ h2 .serif{font-style:italic}
 .cities{margin-top:56px;position:relative}
 .cities h3{font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-.02em;margin-bottom:28px}
 .cities h3 .serif{font-style:italic}
-.route{position:absolute;left:0;right:0;top:150px;height:120px;pointer-events:none;z-index:0}
-.route path{stroke-dasharray:6 8;animation:march 2s linear infinite}
-.plane{position:absolute;font-size:22px;offset-path:path('M40 90 C 260 -20, 420 140, 620 40 S 980 0, 1140 70');animation:fly 9s linear infinite}
-@keyframes fly{from{offset-distance:0%}to{offset-distance:100%}}
+.flight{position:relative;height:110px;margin:-6px 0 6px}
+.flight svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.flight path{stroke-dasharray:6 8;animation:march 2s linear infinite}
+.flight .stop{fill:var(--a3)}
+.plane{position:absolute;left:0;top:0;font-size:28px;line-height:1;z-index:3;will-change:transform;filter:drop-shadow(0 6px 12px #000a)}
+.loc{display:flex;align-items:center;gap:0;margin-top:8px}
+.loc .flag{width:46px;height:28px;flex:none;border-radius:3px;-webkit-mask:linear-gradient(90deg,#000 15%,rgba(0,0,0,.45) 60%,transparent);mask:linear-gradient(90deg,#000 15%,rgba(0,0,0,.45) 60%,transparent)}
+.loc small{margin-left:-6px;font-family:var(--mono);font-size:10.5px;color:#444;position:relative}
 .pol{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;position:relative;z-index:1}
 .pc2{background:#f3f1ea;color:#1b1b1f;padding:12px 12px 16px;border-radius:6px;box-shadow:0 30px 60px -25px #000,0 0 0 1px #0002;transform:rotate(var(--rot));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .pc2:hover{transform:rotate(0) translateY(-10px) scale(1.04);z-index:2}
@@ -434,7 +444,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 @media (max-width:1080px){
   .hob{grid-template-columns:repeat(3,1fr)}
   .pol{grid-template-columns:repeat(2,1fr)}
-  .route{display:none}
 }
 @media (max-width:980px){
   .hero .wrap,.about-grid,.nasa,.cols,.res{grid-template-columns:1fr}
@@ -480,7 +489,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   .hob{grid-template-columns:1fr 1fr}
   .certs{grid-template-columns:1fr}
   .press{grid-template-columns:1fr}
-  .ussrc{min-height:320px}
+  .ussrc{min-height:460px}
   .hb:last-child{grid-column:span 2}
   .pol{gap:18px}
   .pc2 b{font-size:21px}
@@ -676,12 +685,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
             <h3>Software Engineer Intern</h3>
             <div class="co">Oracle <span>· Oracle Analytics Cloud</span></div>
             <ul>
-              <li><b>Job summary APIs:</b> built event-driven APIs that publish pipeline and system KPI metrics, cutting maintenance time from 8 hours to 2 and improving operational efficiency by 75%.</li>
+              <li><b>Job summary APIs:</b> built event-driven APIs that publish pipeline and system KPI metrics, cutting maintenance time from 4 hours to 1 and improving operational efficiency by 75%.</li>
               <li><b>Analytics at scale:</b> designed dataflow orchestration and dashboard-driven insights for 1000+ enterprise customers, including Dell and Costco, across multi-tenant ETL from Fusion, NetSuite, EBS and Salesforce via Apache Spark into Oracle ADW.</li>
               <li><b>Global rollout:</b> shipped Java / Spring Boot microservices, containerized with Docker and deployed across 14 global regions.</li>
               <li><b>AI-assisted engineering:</b> used OpenAI Codex and GitHub Copilot for PR reviews, design exploration and root-cause analysis.</li>
             </ul>
-            <div class="pills"><span>8 hrs → 2 hrs</span><span>1000+ customers</span><span>14 regions</span></div>
+            <div class="pills"><span>4 hrs → 1 hr</span><span>1000+ customers</span><span>14 regions</span></div>
             <div class="tags"><span>Java</span><span>Spring Boot</span><span>Apache Spark</span><span>Scala</span><span>Docker</span><span>CI/CD</span><span>GraphQL</span><span>Oracle ADW</span></div>
           </div>
           <div class="viz">
@@ -766,8 +775,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <span class="num">04 / Agents · Vision</span><span class="arrow">↗</span>
         <div class="ico">🛒</div>
         <h3>Store Intelligence Agent</h3>
-        <p>Built solo for a hackathon: planogram compliance with GPT-4o vision for shelves, YOLOv8 detection, FAISS search and a Streamlit console.</p>
-        <div class="kpis"><div><b>Solo</b><span>hackathon build</span></div></div>
+        <p>A hackathon team project: planogram compliance with GPT-4o vision for shelves, YOLOv8 detection, FAISS search and a Streamlit console.</p>
+        <div class="kpis"><div><b>Team</b><span>hackathon build</span></div></div>
         <div class="tags"><span>LangChain</span><span>YOLOv8</span><span>FAISS</span></div>
       </a>
       <a class="pc rv" href="https://github.com/SakshiBhavsar" target="_blank" rel="noopener">
@@ -802,13 +811,18 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <a class="clip" href="https://www.linkedin.com/in/sakshi-bhavsar/details/featured/" target="_blank" rel="noopener"><span class="pub-n">Vartahar · 2 May 2019</span><b>Students from India get an astronaut experience</b><em>View clipping ↗</em></a>
         </div>
       </div>
-      <figure class="ussrc"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Saturn_V_Exterior_Display_at_the_US_Space_%26_Rocket_Center_in_Alabama_USA.jpg/960px-Saturn_V_Exterior_Display_at_the_US_Space_%26_Rocket_Center_in_Alabama_USA.jpg" alt="Saturn V rocket at the U.S. Space &amp; Rocket Center, Huntsville, Alabama" loading="lazy"><figcaption><img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/U.S._Space_%26_Rocket_Center_logo.png" alt="U.S. Space &amp; Rocket Center logo"><span>Huntsville, Alabama · 2019</span></figcaption></figure>
+      <div class="ussrc">
+        <figure class="g main"><img src="assets/ussrc-mission.webp" alt="Sakshi in a flight suit giving a thumbs up during a mission simulation at the U.S. Space &amp; Rocket Center" loading="lazy" style="object-position:50% 30%"><figcaption><img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/U.S._Space_%26_Rocket_Center_logo.png" alt="U.S. Space &amp; Rocket Center logo"><span>Huntsville, Alabama · 2019</span></figcaption></figure>
+        <figure class="g"><img src="assets/ussrc-astrotrek.webp" alt="Sakshi on the reduced-gravity Astrotrek trainer" loading="lazy" style="object-position:50% 40%"><span class="gl">Astrotrek</span></figure>
+        <figure class="g"><img src="assets/ussrc-rocket-launch.png" alt="Model rocket launching from the pad" loading="lazy" style="object-position:50% 25%"><span class="gl">Rocket launch</span></figure>
+        <figure class="g"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Saturn_V_Exterior_Display_at_the_US_Space_%26_Rocket_Center_in_Alabama_USA.jpg/960px-Saturn_V_Exterior_Display_at_the_US_Space_%26_Rocket_Center_in_Alabama_USA.jpg" alt="Saturn V rocket at the U.S. Space &amp; Rocket Center" loading="lazy" style="object-position:50% 30%"><span class="gl">Saturn V</span></figure>
+      </div>
     </div>
     <div class="cols">
       <div class="box rv">
         <h4>Publications</h4>
-        <div class="pubs"><div class="pub"><span class="yr">2023</span><div><b>Image-based Sudoku Solver using Applied Recursive Backtracking</b><span>A. Anasune, <u>S. Bhavsar</u></span><br><span class="venue">IEEE · INCOFT 2023</span></div></div>
-        <div class="pub"><span class="yr">2023</span><div><b>DeepCNN AD: Leveraging U-Net for Enhanced Alzheimer's Disease Detection</b><span><u>S. Bhavsar</u>, Emmanuel M., M. Awad</span><br><span class="venue">IJAPRR</span></div></div></div>
+        <div class="pubs"><div class="pub"><span class="yr"><img src="https://www.google.com/s2/favicons?domain=ieee.org&sz=128" alt="IEEE"></span><div><b>Image-based Sudoku Solver using Applied Recursive Backtracking</b><span>A. Anasune, <u>S. Bhavsar</u></span><br><span class="venue">IEEE · INCOFT 2023</span></div></div>
+        <div class="pub"><span class="yr"><b class="mono-logo">IJAPRR</b></span><div><b>DeepCNN AD: Leveraging U-Net for Enhanced Alzheimer's Disease Detection</b><span><u>S. Bhavsar</u>, Emmanuel M., M. Awad</span><br><span class="venue">IJAPRR</span></div></div></div>
       </div>
       <div class="box rv">
         <h4>Certifications</h4>
@@ -819,7 +833,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <div class="cert"><div class="lg"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt=""></div><div><b>Data Science</b><span>IBM</span></div></div>
         <div class="cert"><div class="lg"><img src="https://www.google.com/s2/favicons?domain=umich.edu&sz=128" alt=""></div><div><b>Structured Query Language (SQL)</b><span>University of Michigan</span></div></div>
         <div class="cert"><div class="lg"><img src="https://www.google.com/s2/favicons?domain=illinois.edu&sz=128" alt=""></div><div><b>Finance</b><span>University of Illinois Urbana-Champaign</span></div></div>
-        <div class="cert"><div class="lg"><b class="pict">PICT</b></div><div><b>Object Oriented Programming using C++</b><span>Pune Institute of Computer Technology</span></div></div>
+        <div class="cert"><div class="lg"><img src="assets/pict-logo.png" alt="" style="width:40px;height:40px"></div><div><b>Object Oriented Programming using C++</b><span>Pune Institute of Computer Technology</span></div></div>
         <div class="cert"><div class="lg"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/U.S._Space_%26_Rocket_Center_logo.png" alt="" style="width:38px"></div><div><b>Honeywell Leadership Challenge Academy</b><span>U.S. Space &amp; Rocket Center</span></div></div></div>
       </div>
     </div>
@@ -851,15 +865,15 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <div class="deg">Master of Science<span>Computer Engineering</span></div>
           <div class="row"><span class="g">GPA 3.74 / 4.0</span><span>Sep 2024 – Jan 2026</span><span>Distributed systems · Deep learning · HPC</span></div>
         </div>
-        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Washington_Square_Arch-Isabella.jpg/960px-Washington_Square_Arch-Isabella.jpg" alt="Washington Square Arch in Washington Square Park" loading="lazy" style="object-position:50% 35%"><figcaption>Washington Square Park · NYC</figcaption></figure>
+        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Washington_Square_Arch-Isabella.jpg/960px-Washington_Square_Arch-Isabella.jpg" alt="Washington Square Arch in Washington Square Park" loading="lazy" style="object-position:50% 35%"><figcaption>New York City, USA</figcaption></figure>
       </div>
       <div class="ed pict rv">
         <div class="info">
-          <div class="top"><div class="seal"><b>PICT</b></div><div class="school">Pune Institute of Computer Technology<small>Savitribai Phule Pune University · Pune, Maharashtra, India</small></div></div>
+          <div class="top"><div class="seal"><img src="assets/pict-logo.png" alt="PICT logo" style="width:46px;height:46px"></div><div class="school">Pune Institute of Computer Technology<small>Savitribai Phule Pune University · Pune, Maharashtra, India</small></div></div>
           <div class="deg">Bachelor of Engineering<span>Information Technology</span></div>
           <div class="row"><span class="g">CGPA 9.0 / 10</span><span>Jul 2020 – May 2024</span><span>OS · DSA · Networks · Databases</span></div>
         </div>
-        <figure class="ph"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Pune_Institute_of_Computer_Technology%2C_Katraj%2C_Pune.jpg/960px-Pune_Institute_of_Computer_Technology%2C_Katraj%2C_Pune.jpg" alt="Pune Institute of Computer Technology campus" loading="lazy"><figcaption>PICT · Katraj, Pune</figcaption></figure>
+        <figure class="ph"><img src="assets/pict-campus.webp" alt="Pune Institute of Computer Technology main building" loading="lazy" style="object-position:50% 45%"><figcaption>Pune, IND</figcaption></figure>
       </div>
     </div>
   </div>
@@ -898,15 +912,24 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
 
     <div class="cities">
-      <h3 class="rv">Cities I've <span class="serif grad">called home</span></h3>
-      <svg class="route" viewBox="0 0 1180 120" preserveAspectRatio="none"><path d="M40 90 C 260 -20, 420 140, 620 40 S 980 0, 1140 70" fill="none" stroke="#8b9cff55" stroke-width="1.5"/></svg>
-      <span class="plane" aria-hidden="true">✈️</span>
-      <div class="pol">
-        <figure class="pc2 rv" style="--rot:-4deg"><span class="pin"></span><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg/960px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg" alt="Manhattan skyline with the Empire State Building" loading="lazy"></div><b>New York City</b><small>NYU · GeneGenius</small></figure>
-        <figure class="pc2 rv" style="--rot:3deg"><span class="pin"></span><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Golden_Gate_Bridge_as_seen_from_Battery_East.jpg/960px-Golden_Gate_Bridge_as_seen_from_Battery_East.jpg" alt="Golden Gate Bridge, San Francisco" loading="lazy"></div><b>California</b><small>Oracle · Bay Area</small></figure>
-        <figure class="pc2 rv" style="--rot:-2deg"><span class="pin"></span><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Front_view_of_Shaniwar_Wada_illuminated.jpg/960px-Front_view_of_Shaniwar_Wada_illuminated.jpg" alt="Shaniwar Wada, Pune" loading="lazy"></div><b>Pune</b><small>PICT · Bajaj Finserv</small></figure>
-        <figure class="pc2 rv" style="--rot:4deg"><span class="pin"></span><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Lighting_of_Vidhana_Soudha.jpg/960px-Lighting_of_Vidhana_Soudha.jpg" alt="Vidhana Soudha, Bangalore" loading="lazy"></div><b>Bangalore</b><small>The Garden City</small></figure>
+      <h3 class="rv">Places I've <span class="serif grad">called home</span></h3>
+      <div class="flight" id="flight" aria-hidden="true">
+        <svg viewBox="0 0 1180 110" preserveAspectRatio="none"><path id="flightPath" d="M60 92 C 220 -10, 380 120, 590 46 S 960 -6, 1120 84" fill="none" stroke="#8b9cff88" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+        <span class="plane" id="plane">✈️</span>
       </div>
+      <div class="pol">
+        <figure class="pc2 rv" style="--rot:-4deg"><span class="pin"></span><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg/960px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg" alt="Manhattan skyline with the Empire State Building" loading="lazy"></div><b>New York City</b><div class="loc"><svg class="flag" viewBox="0 0 76 40" preserveAspectRatio="none"><use href="#flag-us"/></svg><small>New York, United States</small></div></figure>
+        <figure class="pc2 rv" style="--rot:3deg"><span class="pin"></span><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Golden_Gate_Bridge_as_seen_from_Battery_East.jpg/960px-Golden_Gate_Bridge_as_seen_from_Battery_East.jpg" alt="Golden Gate Bridge, San Francisco" loading="lazy"></div><b>San Francisco Bay Area</b><div class="loc"><svg class="flag" viewBox="0 0 76 40" preserveAspectRatio="none"><use href="#flag-us"/></svg><small>California, United States</small></div></figure>
+        <figure class="pc2 rv" style="--rot:-2deg"><span class="pin"></span><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Front_view_of_Shaniwar_Wada_illuminated.jpg/960px-Front_view_of_Shaniwar_Wada_illuminated.jpg" alt="Shaniwar Wada, Pune" loading="lazy"></div><b>Pune</b><div class="loc"><svg class="flag" viewBox="0 0 60 40" preserveAspectRatio="none"><use href="#flag-in"/></svg><small>Maharashtra, India</small></div></figure>
+        <figure class="pc2 rv" style="--rot:4deg"><span class="pin"></span><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Lighting_of_Vidhana_Soudha.jpg/960px-Lighting_of_Vidhana_Soudha.jpg" alt="Vidhana Soudha, Bangalore" loading="lazy"></div><b>Bangalore</b><div class="loc"><svg class="flag" viewBox="0 0 60 40" preserveAspectRatio="none"><use href="#flag-in"/></svg><small>Karnataka, India</small></div></figure>
+      </div>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+          <pattern id="stars" width="5" height="4.3" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.1" r=".85" fill="#fff"/></pattern>
+          <symbol id="flag-us" viewBox="0 0 76 40"><rect width="76" height="40" fill="#b22234"/><path d="M0 4.6h76M0 10.75h76M0 16.9h76M0 23.05h76M0 29.2h76M0 35.35h76" stroke="#fff" stroke-width="3.08"/><rect width="30.4" height="21.5" fill="#3c3b6e"/><rect width="30.4" height="21.5" fill="url(#stars)"/></symbol>
+          <symbol id="flag-in" viewBox="0 0 60 40"><rect width="60" height="13.34" fill="#ff9933"/><rect y="13.33" width="60" height="13.34" fill="#fff"/><rect y="26.66" width="60" height="13.34" fill="#138808"/><circle cx="30" cy="20" r="5.2" fill="none" stroke="#000080" stroke-width="1"/><circle cx="30" cy="20" r="1.1" fill="#000080"/></symbol>
+        </defs>
+      </svg>
     </div>
   </div>
 </section>
@@ -1082,6 +1105,17 @@ setInterval(() => {
   ci2.innerHTML = pi === 0 ? '<em>payload:</em> {"amt": 1500, "vpa": "…"}' : pi === 3 ? '<em>decrypted for authorized service ✓</em> {"amt": 1500, "status": "SUCCESS"}' : `<em>AES-256 →</em> ${hex()}`;
   pi = (pi + 1) % 4;
 }, 1300);
+
+/* plane along the route between places */
+const fp = $('#flightPath'), plane = $('#plane'), fl = $('#flight'), FL = fp.getTotalLength();
+function placePlane(t) {
+  const sx = fl.clientWidth / 1180, sy = fl.clientHeight / 110;
+  const p = fp.getPointAtLength(FL * t), q = fp.getPointAtLength(Math.min(FL, FL * t + 2));
+  const ang = Math.atan2((q.y - p.y) * sy, (q.x - p.x) * sx) * 180 / Math.PI;
+  plane.style.transform = `translate(${p.x * sx - 14}px, ${p.y * sy - 14}px) rotate(${ang + 45}deg)`;
+}
+if (reduce) placePlane(.5);
+else { const t0 = performance.now(); (function fly(n) { placePlane(((n - t0) / 9000) % 1); requestAnimationFrame(fly); })(t0); }
 
 /* pointer effects */
 const fine = matchMedia('(pointer: fine)').matches;
