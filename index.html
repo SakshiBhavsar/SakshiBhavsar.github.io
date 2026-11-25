@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sakshi Bhavsar · Software & ML Engineer</title>
+<meta name="description" content="Sakshi Bhavsar: ML engineer at GeneGenius, ex-Oracle MTS. Backend, distributed systems, data pipelines and applied AI. NYU M.S. Computer Engineering.">
+<meta property="og:title" content="Sakshi Bhavsar · Software & ML Engineer">
+<meta property="og:description" content="Building AI-native genomics at GeneGenius. Ex-Oracle. NYU Computer Engineering.">
+<meta property="og:image" content="assets/sakshi.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%230b1024'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Georgia' font-style='italic' font-size='34' fill='%23a5b4ff'>SB</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070a17; --bg2:#0c1124; --card:#0f1530cc; --line:#ffffff14; --line2:#ffffff24;
+  --text:#e9ecff; --muted:#9aa3c7; --dim:#6b7398;
+  --a1:#8b9cff; --a2:#c084fc; --a3:#5eead4; --a4:#fbbf77;
+  --grad:linear-gradient(110deg,var(--a1),var(--a2) 45%,var(--a3));
+  --serif:'Instrument Serif',Georgia,serif; --sans:'Space Grotesk',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --r:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--a2);color:#fff}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section{position:relative;padding:120px 0}
+.mono{font-family:var(--mono)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.serif{font-family:var(--serif);font-weight:400}
+
+/* ambient */
+#sky{position:fixed;inset:0;z-index:-2;pointer-events:none}
+.aurora{position:fixed;inset:-20%;z-index:-3;pointer-events:none;filter:blur(90px);opacity:.55}
+.aurora i{position:absolute;border-radius:50%;animation:float 22s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:46vw;height:46vw;left:-5%;top:0;background:#3b3fbf55}
+.aurora i:nth-child(2){width:38vw;height:38vw;right:0;top:25%;background:#7c3aed40;animation-duration:28s}
+.aurora i:nth-child(3){width:34vw;height:34vw;left:30%;bottom:-5%;background:#0d948840;animation-duration:32s}
+@keyframes float{to{transform:translate(6vw,-5vh) scale(1.15)}}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.cursor-glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:-1;background:radial-gradient(circle,#8b9cff1f,transparent 65%);transform:translate(-50%,-50%);transition:opacity .3s;left:-999px;top:-999px}
+
+/* progress + nav */
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--grad);z-index:60}
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:6px;padding:8px 8px 8px 18px;border:1px solid var(--line2);border-radius:999px;background:#0a0f22b3;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);width:max-content;max-width:calc(100% - 24px)}
+nav .logo{font-family:var(--serif);font-style:italic;font-size:22px;margin-right:10px;white-space:nowrap}
+nav .links{display:flex;gap:2px}
+nav .links a{font-size:13.5px;color:var(--muted);padding:7px 12px;border-radius:999px;transition:.25s}
+nav .links a:hover,nav .links a.on{color:var(--text);background:#ffffff10}
+nav .cta{font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:999px;background:var(--text);color:#0a0f22;margin-left:6px;white-space:nowrap;transition:transform .2s}
+nav .cta:hover{transform:translateY(-1px)}
+.burger{display:none;background:none;border:0;color:var(--text);width:38px;height:38px;border-radius:50%;cursor:pointer}
+.burger span{display:block;width:18px;height:1.5px;background:currentColor;margin:4px auto;transition:.3s}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:60px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;color:var(--muted);padding:7px 14px;border:1px solid var(--line2);border-radius:999px;background:#ffffff06}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--a3);box-shadow:0 0 0 0 #5eead4aa;animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px #5eead400}100%{box-shadow:0 0 0 0 #5eead400}}
+.hero h1{font-size:clamp(52px,8.6vw,118px);line-height:.92;letter-spacing:-.035em;font-weight:600;margin:26px 0 22px}
+.hero h1 .serif{font-style:italic;letter-spacing:-.01em;display:block}
+.hero h1 .ch{display:inline-block;opacity:0;transform:translateY(60%) rotate(6deg);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.hero h1 .grad{background-size:200% 100%;opacity:0;transform:translateY(30%);animation:rise 1s .55s cubic-bezier(.2,.8,.2,1) forwards,sheen 6s 1.6s ease-in-out infinite alternate;padding-right:.08em}
+@keyframes sheen{to{background-position:100% 0}}
+.role{font-size:clamp(18px,2.1vw,24px);color:var(--muted);min-height:1.6em}
+.role b{color:var(--text);font-weight:500}
+.caret{display:inline-block;width:2px;height:1.05em;background:var(--a3);vertical-align:-3px;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lede{max-width:560px;color:var(--muted);margin:22px 0 34px;font-size:16.5px}
+.lede strong{color:var(--text);font-weight:500}
+.btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid var(--line2);transition:transform .25s,background .25s,border-color .25s;overflow:hidden;cursor:pointer;background:none;color:var(--text);font-family:inherit}
+.btn.primary{background:var(--grad);color:#0a0f22;border:0}
+.btn.primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#ffffff80 50%,transparent 70%);transform:translateX(-100%);transition:transform .7s}
+.btn.primary:hover::after{transform:translateX(100%)}
+.btn:hover{transform:translateY(-2px);border-color:#ffffff55}
+.socials{display:flex;gap:10px;margin-left:6px}
+.socials a{width:46px;height:46px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line2);color:var(--muted);transition:.25s}
+.socials a:hover{color:var(--text);border-color:var(--a1);transform:translateY(-3px) rotate(-6deg);background:#8b9cff18}
+.socials svg{width:19px;height:19px}
+
+.portrait{position:relative;justify-self:center;width:min(400px,100%);aspect-ratio:4/5;perspective:1000px}
+.portrait .frame{position:absolute;inset:0;border-radius:32px;overflow:hidden;transform-style:preserve-3d;transition:transform .2s ease-out;background:#eef0ff;box-shadow:0 40px 80px -30px #000c,0 0 0 1px #ffffff22}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 52%;transform:scale(1.04)}
+.portrait .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#070a17cc);pointer-events:none}
+.portrait .ring{position:absolute;inset:-14px;border-radius:42px;padding:1.5px;background:conic-gradient(from var(--ang,0deg),var(--a1),var(--a2),var(--a3),var(--a4),var(--a1));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 8s linear infinite;opacity:.8}
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spin{to{--ang:360deg}}
+.chip{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;background:#0d1330e6;border:1px solid var(--line2);backdrop-filter:blur(10px);font-size:13px;white-space:nowrap;box-shadow:0 20px 40px -20px #000;animation:bob 6s ease-in-out infinite}
+.chip em{font-style:normal;font-size:20px}
+.chip small{display:block;color:var(--muted);font-size:11px;font-family:var(--mono)}
+.chip.c1{left:-58px;top:12%}
+.chip.c2{right:-24px;top:46%;animation-delay:-2s}
+.chip.c3{left:-30px;bottom:9%;animation-delay:-4s}
+@keyframes bob{50%{transform:translateY(-12px)}}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;color:var(--dim);display:flex;flex-direction:column;align-items:center;gap:8px;letter-spacing:.2em}
+.scroll-hint i{width:1px;height:42px;background:linear-gradient(var(--a1),transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);padding:22px 0;overflow:hidden;background:#ffffff04;-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee .track{display:flex;gap:56px;width:max-content;animation:slide 40s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.marquee span{font-family:var(--serif);font-size:30px;color:var(--dim);display:flex;align-items:center;gap:56px;white-space:nowrap;transition:color .3s}
+.marquee span:hover{color:var(--text)}
+.marquee span::after{content:"✦";font-size:14px;color:var(--a2)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* headings */
+.eyebrow{font-family:var(--mono);font-size:12.5px;color:var(--a3);letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+h2{font-size:clamp(38px,5.4vw,68px);line-height:1;letter-spacing:-.03em;font-weight:600;margin:16px 0 18px}
+h2 .serif{font-style:italic}
+.sub{color:var(--muted);max-width:620px;font-size:16.5px}
+.head{margin-bottom:56px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* about + stats */
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+.about-grid p{color:var(--muted);font-size:17px;margin-bottom:18px}
+.about-grid p strong{color:var(--text);font-weight:500}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{padding:26px;border-radius:var(--r);border:1px solid var(--line);background:var(--card);position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.stat:hover{border-color:var(--line2);transform:translateY(-4px)}
+.stat b{font-size:46px;font-weight:600;letter-spacing:-.03em;display:block;line-height:1.05}
+.stat>span{color:var(--muted);font-size:14px}
+.stat::before{content:"";position:absolute;width:140px;height:140px;right:-50px;top:-50px;border-radius:50%;background:var(--glow,#8b9cff);opacity:.13;filter:blur(20px)}
+.focus{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.focus span{font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--line2);color:var(--text);background:#ffffff06}
+
+/* experience */
+.exp{display:grid;grid-template-columns:290px 1fr;gap:40px}
+.tabs{display:flex;flex-direction:column;gap:6px;position:relative;border-left:1px solid var(--line2)}
+.tab{all:unset;cursor:pointer;padding:16px 20px;border-radius:0 14px 14px 0;transition:background .25s;position:relative}
+.tab:hover{background:#ffffff08}
+.tab.on{background:#8b9cff14}
+.tab.on::before{content:"";position:absolute;left:-1px;top:10px;bottom:10px;width:2px;background:var(--grad);border-radius:2px}
+.tab b{display:block;font-weight:600;font-size:16px}
+.tab span{font-size:12.5px;color:var(--muted);font-family:var(--mono)}
+.tab .now{font-size:10.5px;color:#0a0f22;background:var(--a3);padding:2px 7px;border-radius:999px;margin-left:8px;font-family:var(--mono);vertical-align:2px}
+.panel{display:none;padding:36px;border-radius:24px;border:1px solid var(--line);background:var(--card);backdrop-filter:blur(8px);position:relative;overflow:hidden}
+.panel.on{display:block;animation:pin .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes pin{from{opacity:0;transform:translateY(18px) scale(.985)}}
+.panel h3{font-size:clamp(22px,2.6vw,30px);font-weight:600;letter-spacing:-.02em}
+.panel h3 em{font-family:var(--serif);font-weight:400;color:var(--a1)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin:10px 0 24px;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.panel ul{list-style:none;display:grid;gap:14px}
+.panel li{padding-left:28px;position:relative;color:#c6cbe6}
+.panel li::before{content:"";position:absolute;left:0;top:.62em;width:14px;height:1.5px;background:var(--a3)}
+.panel li b{color:var(--text);font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}
+.tags span{font-family:var(--mono);font-size:11.5px;padding:5px 11px;border-radius:8px;background:#ffffff0a;border:1px solid var(--line);color:#c9cff0}
+.panel .wm{position:absolute;right:-10px;bottom:-40px;font-family:var(--serif);font-style:italic;font-size:170px;color:#ffffff06;pointer-events:none;line-height:1;white-space:nowrap}
+.panel .helix{position:absolute;right:20px;top:20px;width:60px;opacity:.6}
+
+/* projects */
+.proj{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.pc{grid-column:span 3;position:relative;padding:30px;border-radius:24px;border:1px solid var(--line);background:var(--card);overflow:hidden;transform-style:preserve-3d;transition:border-color .3s;min-height:300px;display:flex;flex-direction:column}
+.pc.wide{grid-column:span 4}.pc.nar{grid-column:span 2}
+.pc::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),#8b9cff22,transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+.pc:hover{border-color:var(--line2)}
+.pc:hover::before{opacity:1}
+.pc .num{font-family:var(--mono);font-size:12px;color:var(--dim)}
+.pc .ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:24px;background:#ffffff0a;border:1px solid var(--line2);margin:16px 0 20px}
+.pc h3{font-size:24px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.pc p{color:var(--muted);font-size:15px;flex:1}
+.pc .kpis{display:flex;gap:22px;margin:18px 0 4px;flex-wrap:wrap}
+.pc .kpis div b{display:block;font-size:26px;font-weight:600;letter-spacing:-.02em}
+.pc .kpis div span{font-size:12px;color:var(--muted);font-family:var(--mono)}
+.pc .arrow{position:absolute;top:26px;right:26px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;transition:.3s;color:var(--muted)}
+.pc:hover .arrow{transform:rotate(-45deg);background:var(--text);color:#0a0f22}
+
+/* honors */
+.nasa{position:relative;border-radius:30px;overflow:hidden;border:1px solid var(--line2);padding:56px;background:radial-gradient(120% 140% at 100% 0%,#3730a3aa,transparent 55%),radial-gradient(80% 120% at 0% 100%,#0f766e66,transparent 60%),#0a0f22;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;margin-bottom:22px}
+.nasa .k{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--a4)}
+.nasa h3{font-size:clamp(30px,4vw,50px);line-height:1.02;letter-spacing:-.03em;font-weight:600;margin:14px 0 16px}
+.nasa h3 .serif{font-style:italic;color:var(--a4)}
+.nasa p{color:#c6cbe6;max-width:520px}
+.big17{font-size:clamp(90px,13vw,170px);font-weight:600;letter-spacing:-.06em;line-height:.85}
+.big17 small{display:block;font-size:15px;letter-spacing:0;font-weight:400;color:var(--muted);margin-top:14px;font-family:var(--mono)}
+.orbit{position:relative;justify-self:center;width:260px;height:260px}
+.orbit .o{position:absolute;inset:0;border:1px dashed #ffffff26;border-radius:50%;animation:rot 18s linear infinite}
+.orbit .o:nth-child(2){inset:40px;animation-duration:12s;animation-direction:reverse}
+.orbit .o i{position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;background:var(--a4);box-shadow:0 0 20px var(--a4)}
+.orbit .o:nth-child(2) i{background:var(--a3);box-shadow:0 0 20px var(--a3)}
+.orbit .core{position:absolute;inset:90px;border-radius:50%;display:grid;place-items:center;font-size:40px;background:radial-gradient(circle,#fbbf7733,transparent 70%)}
+.rocket{display:inline-block;animation:lift 3s ease-in-out infinite}
+@keyframes lift{50%{transform:translateY(-8px) rotate(-4deg)}}
+@keyframes rot{to{transform:rotate(360deg)}}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.box{padding:34px;border-radius:24px;border:1px solid var(--line);background:var(--card)}
+.box h4{font-family:var(--mono);font-size:12.5px;letter-spacing:.18em;color:var(--a3);text-transform:uppercase;margin-bottom:22px}
+.pub{padding:20px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:58px 1fr;gap:16px}
+.pub:first-of-type{border-top:0;padding-top:0}
+.pub .yr{font-family:var(--mono);font-size:12px;color:var(--a1);padding-top:4px}
+.pub b{display:block;font-weight:500;font-size:17px;line-height:1.35;margin-bottom:6px}
+.pub span{font-size:13.5px;color:var(--muted)}
+.pub .venue{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:6px;background:#8b9cff1a;color:var(--a1)}
+.cert{display:flex;align-items:center;gap:16px;padding:15px 0;border-top:1px solid var(--line)}
+.cert:first-of-type{border-top:0;padding-top:0}
+.cert .lg{width:46px;height:46px;flex:none;border-radius:12px;display:grid;place-items:center;font-weight:700;font-size:14px;background:#ffffff0a;border:1px solid var(--line2)}
+.cert b{display:block;font-weight:500}
+.cert span{font-size:13px;color:var(--muted);font-family:var(--mono)}
+
+/* skills */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{all:unset;cursor:pointer;font-size:13.5px;padding:9px 16px;border-radius:999px;border:1px solid var(--line2);color:var(--muted);transition:.25s}
+.filters button:hover{color:var(--text)}
+.filters button.on{background:var(--text);color:#0a0f22;border-color:var(--text)}
+.skills{display:flex;flex-wrap:wrap;gap:10px}
+.sk{padding:11px 18px;border-radius:14px;border:1px solid var(--line);background:var(--card);font-size:15px;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s,border-color .25s,background .25s;cursor:default}
+.sk:hover{border-color:var(--a1);background:#8b9cff14;transform:translateY(-3px)}
+.sk.off{opacity:.14;transform:scale(.94)}
+.sk i{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-left:8px}
+
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.ed{position:relative;padding:38px;border-radius:26px;border:1px solid var(--line);background:var(--card);overflow:hidden}
+.ed .yr{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.ed h3{font-size:26px;font-weight:600;letter-spacing:-.02em;margin:12px 0 4px}
+.ed .deg{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--a1)}
+.ed .gpa{display:flex;align-items:baseline;gap:10px;margin-top:26px}
+.ed .gpa b{font-size:54px;font-weight:600;letter-spacing:-.04em;line-height:1}
+.ed .gpa span{color:var(--muted);font-family:var(--mono);font-size:13px}
+.ed .bar{height:6px;border-radius:9px;background:#ffffff10;margin-top:16px;overflow:hidden}
+.ed .bar i{display:block;height:100%;width:0;background:var(--grad);border-radius:9px;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.ed .crest{position:absolute;right:-20px;top:-30px;font-family:var(--serif);font-style:italic;font-size:150px;color:#ffffff07;line-height:1}
+.ed .loc{margin-top:16px;color:var(--muted);font-size:14px}
+
+/* contact */
+.contact{text-align:center;padding:150px 0 110px}
+.contact h2{font-size:clamp(46px,9vw,124px);line-height:.95;margin:20px auto 26px}
+.contact .sub{margin:0 auto 40px}
+.mail{display:inline-flex;align-items:center;gap:14px;font-size:clamp(18px,2.6vw,28px);padding:18px 30px;border-radius:999px;border:1px solid var(--line2);background:#ffffff06;transition:.3s;cursor:pointer;font-family:inherit;color:var(--text)}
+.mail:hover{border-color:var(--a1);background:#8b9cff14}
+.mail .cp{font-family:var(--mono);font-size:12px;color:var(--muted);padding:5px 10px;border:1px solid var(--line2);border-radius:999px}
+.clinks{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px}
+.clinks a{display:flex;align-items:center;gap:10px;padding:12px 20px;border-radius:14px;border:1px solid var(--line);background:var(--card);transition:.25s;font-size:15px}
+.clinks a:hover{border-color:var(--a1);transform:translateY(-3px)}
+.clinks svg{width:18px;height:18px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--dim);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,120px);padding:12px 20px;border-radius:12px;background:var(--text);color:#0a0f22;font-weight:600;font-size:14px;z-index:80;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.toast.show{transform:translate(-50%,0)}
+
+/* responsive */
+@media (max-width:980px){
+  .hero .wrap,.about-grid,.nasa,.cols,.edu{grid-template-columns:1fr}
+  .portrait{width:min(340px,82%);margin-top:20px}
+  .chip.c1{left:-20px}.chip.c2{right:-20px}.chip.c3{left:-10px}
+  .exp{grid-template-columns:1fr}
+  .tabs{flex-direction:row;overflow-x:auto;border-left:0;border-bottom:1px solid var(--line2);gap:4px;scrollbar-width:none}
+  .tab{border-radius:12px 12px 0 0;white-space:nowrap;padding:12px 16px}
+  .tab.on::before{left:10px;right:10px;top:auto;bottom:-1px;width:auto;height:2px}
+  .pc,.pc.wide,.pc.nar{grid-column:span 6}
+  .orbit{display:none}
+}
+@media (max-width:760px){
+  section{padding:90px 0}
+  nav .links{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:#0a0f22f2;border:1px solid var(--line2);border-radius:20px;padding:10px}
+  nav.open .links{display:flex}
+  nav .links a{padding:12px 16px;font-size:15px}
+  .burger{display:block}
+  nav{width:calc(100% - 24px);justify-content:space-between}
+  nav .cta{display:none}
+  .wrap{width:calc(100% - 32px)}
+  .panel,.nasa,.box,.ed,.pc{padding:26px}
+  .stat b{font-size:36px}
+  .socials{margin-left:0}
+  .chip{font-size:12px;padding:8px 11px}
+  .chip.c2{display:none}
+  .scroll-hint{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  .hero h1 .ch,.hero h1 .grad{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="aurora"><i></i><i></i><i></i></div>
+<canvas id="sky"></canvas>
+<div class="grain"></div>
+<div class="cursor-glow" id="glow"></div>
+<div class="progress" id="prog"></div>
+
+<nav id="nav">
+  <a href="#top" class="logo">Sakshi.</a>
+  <div class="links">
+    <a href="#about">About</a><a href="#work">Experience</a><a href="#projects">Projects</a><a href="#honors">Research</a><a href="#stack">Stack</a><a href="#edu">Education</a>
+  </div>
+  <a href="#contact" class="cta">Let's talk</a>
+  <button class="burger" aria-label="Menu" id="burger"><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="badge"><i class="dot"></i>Open to Software, ML &amp; AI engineering roles · US</span>
+      <h1 id="name"><span class="w">Sakshi</span><span class="serif grad w">Bhavsar</span></h1>
+      <div class="role">I build <b id="typed"></b><span class="caret"></span></div>
+      <p class="lede">Machine Learning Engineer at <strong>GeneGenius</strong>, previously <strong>Member of Technical Staff at Oracle</strong>. I work on reliable backends, data pipelines that recover on their own, and AI that holds up in production. <strong>NYU</strong> Computer Engineering grad.</p>
+      <div class="btns">
+        <a href="#work" class="btn primary">See my work <span>→</span></a>
+        <a href="#contact" class="btn">Get in touch</a>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/sakshi-bhavsar" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+          <a href="https://github.com/SakshiBhavsar" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg></a>
+          <a href="mailto:sakshi.bhavsar15@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="portrait rv" id="portrait">
+      <div class="ring"></div>
+      <div class="frame" id="frame"><img src="assets/sakshi.jpg" alt="Portrait of Sakshi Bhavsar"></div>
+      <div class="chip c1"><em>🧬</em><div>ML Engineer<small>GeneGenius · now</small></div></div>
+      <div class="chip c2"><em>🚀</em><div>NASA USSRC<small>1 of 17 from India</small></div></div>
+      <div class="chip c3"><em>🎓</em><div>M.S. Computer Eng.<small>NYU Tandon · 3.74</small></div></div>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL<i></i></div>
+</header>
+
+<div class="marquee"><div class="track" id="mq"></div></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="rv">
+      <div class="eyebrow">About</div>
+      <h2>Systems that <span class="serif grad">heal themselves</span>, models that ship.</h2>
+      <p>I like the parts of software that have to keep working when nobody is looking. At <strong>Oracle</strong> I built backend services behind enterprise ETL for 1000+ customers, including a self-healing recovery mechanism that cut pipeline stall time by 95%.</p>
+      <p>Today at <strong>GeneGenius</strong>, an early-stage healthcare startup, I lead work on an AI-native genomics platform that turns clinical variant analysis, work that takes years of specialist training, into evidence-traceable answers in under five minutes.</p>
+      <p>Before that: secure UPI payments at <strong>Bajaj Finserv</strong>, pruning transformers at <strong>NYU</strong>, two research papers, and a trip to <strong>NASA's U.S. Space &amp; Rocket Center</strong> as one of 17 students selected from India.</p>
+      <div class="focus"><span>Distributed systems</span><span>Data pipelines</span><span>Applied ML / LLMs</span><span>Agentic AI</span><span>Backend APIs</span><span>MLOps</span></div>
+    </div>
+    <div class="stats rv">
+      <div class="stat" style="--glow:#5eead4"><b><span data-count="95">0</span>%</b><span>less pipeline stall time with self-healing recovery at Oracle</span></div>
+      <div class="stat" style="--glow:#8b9cff"><b><span data-count="1000">0</span>+</b><span>enterprise customers on the ETL pipelines I worked on</span></div>
+      <div class="stat" style="--glow:#c084fc"><b><span data-count="8">0</span></b><span>ML-powered genomics modules built and validated</span></div>
+      <div class="stat" style="--glow:#fbbf77"><b><span data-count="37">0</span>%</b><span>smaller transformer with SparseBERT, under 1% accuracy loss</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="work">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Experience</div>
+      <h2>Where I've <span class="serif grad">built things</span></h2>
+      <p class="sub">From payments infrastructure in Pune to enterprise data platforms in California to genomics in New York.</p>
+    </div>
+    <div class="exp rv">
+      <div class="tabs" role="tablist">
+        <button class="tab on" data-p="0"><b>GeneGenius <span class="now">NOW</span></b><span>Jun 2026 – Present</span></button>
+        <button class="tab" data-p="1"><b>Oracle · MTS</b><span>Jan 2026 – Jun 2026</span></button>
+        <button class="tab" data-p="2"><b>Oracle · Intern</b><span>May 2025 – Aug 2025</span></button>
+        <button class="tab" data-p="3"><b>Bajaj Finserv</b><span>Jan 2024 – Jun 2024</span></button>
+      </div>
+      <div>
+        <article class="panel on">
+          <svg class="helix" viewBox="0 0 60 120" fill="none"><path d="M10 0C10 30 50 30 50 60S10 90 10 120" stroke="#5eead4" stroke-width="2"/><path d="M50 0C50 30 10 30 10 60S50 90 50 120" stroke="#c084fc" stroke-width="2"/><g stroke="#ffffff40"><path d="M14 10h32M22 22h16M14 50h32M22 38h16M14 70h32M22 82h16M14 110h32M22 98h16"/></g></svg>
+          <h3>Machine Learning Engineer <em>@ GeneGenius</em></h3>
+          <div class="meta"><span>Jun 2026 – Present</span><span>New York City, NY</span><span>Healthcare AI · 9-engineer startup</span></div>
+          <ul>
+            <li>Lead development of an <b>AI-native genomic interpretation platform</b> for clinicians and researchers, automating clinical variant analysis that takes <b>5–7 years</b> of specialist expertise into evidence-traceable insights in <b>under 5 minutes</b>.</li>
+            <li>Own the <b>Therapeutic Synthesis module</b> end to end, and built production infrastructure for <b>8 ML-powered genomics modules</b>: structural impact prediction, RNA splicing, expression outliers, phenotype integration, therapeutic recommendation and functional variant interpretation.</li>
+            <li>Architected backend, MLOps and testing infrastructure with observability, orchestration, security controls, and regression, integration and end-to-end validation for <b>deterministic, regulatory-grade</b> reporting.</li>
+            <li>Engaged with health-tech experts through outreach to pitch the product and gather research reviews; selected to represent the company at health-tech conferences.</li>
+          </ul>
+          <div class="tags"><span>Python</span><span>FastAPI</span><span>MongoDB</span><span>AWS</span><span>MLOps</span><span>Genomics ML</span><span>Testing &amp; Validation</span></div>
+          <div class="wm">GeneGenius</div>
+        </article>
+        <article class="panel">
+          <h3>Member of Technical Staff <em>@ Oracle</em></h3>
+          <div class="meta"><span>Jan 2026 – Jun 2026</span><span>Pleasanton, California</span><span>Enterprise Data Platform</span></div>
+          <ul>
+            <li>Designed and shipped a configurable <b>self-healing dataflow recovery</b> mechanism that detects stuck jobs and handles system and manual cancellations, cutting pipeline stall time by <b>95%</b>.</li>
+            <li>Built an <b>object-model override framework</b> for full and partial metadata overrides via configuration, removing null/empty dataset edge cases and improving job success rate by up to <b>30%</b>; wrote JUnit regression suites.</li>
+            <li>Added refresh diagnostics and KPI observability that surface ETL bottlenecks (ADW utilization, source maintenance, long custom extracts), cutting delayed-job latency by <b>10+ hours</b>.</li>
+            <li>Refactored OSS object deserialization to cut processing overhead by <b>80%</b>; added file-storage sanity checks and runtime wallet refresh for uninterrupted, secure execution.</li>
+          </ul>
+          <div class="tags"><span>Java</span><span>Spring Boot</span><span>Oracle DB</span><span>PostgreSQL</span><span>Microservices</span><span>JUnit</span><span>OCI</span></div>
+          <div class="wm">Oracle</div>
+        </article>
+        <article class="panel">
+          <h3>Software Engineer Intern <em>@ Oracle</em></h3>
+          <div class="meta"><span>May 2025 – Aug 2025</span><span>Pleasanton, California</span><span>Fusion Data Intelligence</span></div>
+          <ul>
+            <li>Built <b>event-driven job summary APIs</b> that publish pipeline and system KPI metrics, cutting maintenance time from 8 hours to 2 and improving operational efficiency by <b>75%</b>.</li>
+            <li>Designed dataflow orchestration and dashboard-driven insights for <b>1000+ enterprise customers</b>, including Dell and Costco, across multi-tenant ETL from Fusion, NetSuite, EBS and Salesforce via Apache Spark into Oracle ADW.</li>
+            <li>Shipped Java / Spring Boot microservices, containerized with Docker and deployed across <b>14 global regions</b>.</li>
+            <li>Used OpenAI Codex and GitHub Copilot for PR reviews, design exploration and root-cause analysis.</li>
+          </ul>
+          <div class="tags"><span>Java</span><span>Spring Boot</span><span>Apache Spark</span><span>Scala</span><span>Docker</span><span>Oracle ADW</span></div>
+          <div class="wm">Oracle</div>
+        </article>
+        <article class="panel">
+          <h3>Software Development Engineer Intern <em>@ Bajaj Finserv</em></h3>
+          <div class="meta"><span>Jan 2024 – Jun 2024</span><span>Pune, India</span><span>Payments · UPI</span></div>
+          <ul>
+            <li>Engineered a secure <b>UPI transaction system</b> with <b>7 REST APIs</b> in a multilayer architecture, with encryption and encoding workflows for authorized-only access to sensitive payment data.</li>
+            <li>Worked with <b>6 cross-functional teams</b> on the UPI Switch rollout, integrating interoperability services with PSPs <b>Mindgate</b> and <b>Juspay</b>.</li>
+            <li>Built 3 Python Flask API wrappers for UPI that simplified backend integration.</li>
+          </ul>
+          <div class="tags"><span>Java</span><span>Spring Boot</span><span>Python Flask</span><span>REST APIs</span><span>Encryption</span><span>OOP</span></div>
+          <div class="wm">Bajaj</div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Projects</div>
+      <h2>Things I've <span class="serif grad">made</span></h2>
+      <p class="sub">Agents, compressed transformers, medical imaging and microservices. Hover the cards.</p>
+    </div>
+    <div class="proj">
+      <a class="pc wide rv" href="https://github.com/SakshiBhavsar" target="_blank" rel="noopener">
+        <span class="num">01 / Agentic AI</span><span class="arrow">↗</span>
+        <div class="ico">🛟</div>
+        <h3>Agentic Incident-Response Copilot</h3>
+        <p>A control plane that ingests telemetry and logs, runs RAG over runbooks and 10K+ historical incidents to diagnose root causes, then executes typed, risk-aware remediation (retry, restart, rollback). Low-confidence cases escalate with evidence attached. Fully traced with OpenTelemetry.</p>
+        <div class="kpis"><div><b>70%</b><span>lower simulated MTTR</span></div><div><b>90%</b><span>root-cause accuracy</span></div><div><b>100+</b><span>failure scenarios</span></div></div>
+        <div class="tags"><span>LangGraph</span><span>RAG</span><span>FastAPI</span><span>pgvector</span><span>Redis</span><span>OpenTelemetry</span><span>Docker</span></div>
+      </a>
+      <a class="pc nar rv" href="https://github.com/SakshiBhavsar" target="_blank" rel="noopener">
+        <span class="num">02 / ML Systems</span><span class="arrow">↗</span>
+        <div class="ico">✂️</div>
+        <h3>SparseBERT</h3>
+        <p>Compressed ModernBERT with progressive structured pruning: 2:4 sparsity, head and FFN pruning, sparsity-aware fine-tuning on HPC.</p>
+        <div class="kpis"><div><b>37%</b><span>smaller</span></div><div><b>1.16×</b><span>faster</span></div></div>
+        <div class="tags"><span>PyTorch</span><span>Hugging Face</span><span>CUDA</span><span>Nsight</span></div>
+      </a>
+      <a class="pc nar rv" href="https://github.com/SakshiBhavsar" target="_blank" rel="noopener">
+        <span class="num">03 / Medical AI</span><span class="arrow">↗</span>
+        <div class="ico">🧠</div>
+        <h3>Alzheimer's Detection with U-Net</h3>
+        <p>A U-Net CNN that reads neuroimaging and neuropsychological data for earlier, more accurate detection. Published as DeepCNN AD.</p>
+        <div class="kpis"><div><b>10%</b><span>faster diagnosis</span></div></div>
+        <div class="tags"><span>TensorFlow</span><span>Keras</span><span>NumPy</span></div>
+      </a>
+      <a class="pc wide rv" href="https://github.com/SakshiBhavsar" target="_blank" rel="noopener">
+        <span class="num">04 / Agents · Vision</span><span class="arrow">↗</span>
+        <div class="ico">🛒</div>
+        <h3>Store Intelligence Agent</h3>
+        <p>Built solo for a hackathon: an end-to-end agentic pipeline for planogram compliance. FastAPI orchestrates GPT-4o vision for shelf analysis, YOLOv8 for real-time detection and FAISS for vector search, with a Streamlit console for store operations.</p>
+        <div class="tags"><span>Python</span><span>LangChain</span><span>FastAPI</span><span>YOLOv8</span><span>FAISS</span><span>OpenAI API</span><span>Streamlit</span></div>
+      </a>
+      <a class="pc rv" href="https://github.com/SakshiBhavsar" target="_blank" rel="noopener" style="grid-column:span 6;min-height:auto">
+        <span class="num">05 / Backend</span><span class="arrow">↗</span>
+        <div class="ico">❓</div>
+        <h3>InQuizitive</h3>
+        <p>A quiz platform split into 8 independent Spring Boot microservices with AI-powered quiz recommendations, designed to grow into RAG-driven personalized learning. Improved integration efficiency by 30%.</p>
+        <div class="tags"><span>Java</span><span>Spring Boot</span><span>MySQL</span><span>Microservices</span><span>REST APIs</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HONORS / RESEARCH / CERTS -->
+<section id="honors">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Research &amp; Recognition</div>
+      <h2>Papers, <span class="serif grad">rockets</span> &amp; credentials</h2>
+    </div>
+    <div class="nasa rv">
+      <div>
+        <div class="k">HONEYWELL LEADERSHIP CHALLENGE ACADEMY</div>
+        <h3>Selected for <span class="serif">NASA's</span> U.S. Space &amp; Rocket Center <span class="rocket">🚀</span></h3>
+        <p>One of 17 students chosen from across India for the Honeywell Leadership Challenge Academy at the U.S. Space &amp; Rocket Center in Huntsville, Alabama: a week of space-mission simulations, rocket engineering challenges and leadership training alongside students from around the world.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:30px;justify-content:center">
+        <div class="big17"><span data-count="17">0</span><small>students selected from India</small></div>
+        <div class="orbit"><div class="o"><i></i></div><div class="o"><i></i></div><div class="core">🛰️</div></div>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="box rv">
+        <h4>Publications</h4>
+        <div class="pub"><span class="yr">2023</span><div><b>Image-based Sudoku Solver using Applied Recursive Backtracking</b><span>A. Anasune, <u>S. Bhavsar</u></span><br><span class="venue">IEEE · INCOFT 2023</span></div></div>
+        <div class="pub"><span class="yr">2023</span><div><b>DeepCNN AD: Leveraging U-Net for Enhanced Alzheimer's Disease Detection</b><span><u>S. Bhavsar</u>, Emmanuel M., M. Awad</span><br><span class="venue">IJAPRR</span></div></div>
+      </div>
+      <div class="box rv">
+        <h4>Certifications</h4>
+        <div class="cert"><div class="lg" style="color:#f87171">O</div><div><b>Java Foundations Certified Associate</b><span>Oracle</span></div></div>
+        <div class="cert"><div class="lg" style="color:#f87171">S</div><div><b>Supervised Machine Learning: Regression &amp; Classification</b><span>Stanford University</span></div></div>
+        <div class="cert"><div class="lg" style="color:#60a5fa">G</div><div><b>Generative AI &amp; Large Language Models</b><span>Google Cloud</span></div></div>
+        <div class="cert"><div class="lg" style="color:#c084fc">N</div><div><b>Data Science</b><span>New York University</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Tech Stack</div>
+      <h2>The <span class="serif grad">toolbox</span></h2>
+      <p class="sub">Filter by area.</p>
+    </div>
+    <div class="filters rv" id="filters">
+      <button class="on" data-f="all">All</button><button data-f="ai">AI / ML</button><button data-f="lang">Languages</button><button data-f="be">Backend</button><button data-f="cloud">Cloud &amp; DevOps</button><button data-f="db">Databases</button>
+    </div>
+    <div class="skills rv" id="skills"></div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="edu">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Education</div>
+      <h2>Where I <span class="serif grad">learned</span></h2>
+    </div>
+    <div class="edu">
+      <div class="ed rv">
+        <div class="crest">NYU</div>
+        <span class="yr">Sep 2024 – Jan 2026</span>
+        <h3>New York University</h3>
+        <div class="deg">M.S. Computer Engineering · Tandon School of Engineering</div>
+        <div class="gpa"><b data-dec="3.74">0.00</b><span>/ 4.0 GPA</span></div>
+        <div class="bar"><i data-w="93.5"></i></div>
+        <p class="loc">New York, NY · Distributed systems, deep learning, high-performance ML</p>
+      </div>
+      <div class="ed rv">
+        <div class="crest">PICT</div>
+        <span class="yr">Jul 2020 – May 2024</span>
+        <h3>Pune Institute of Computer Technology</h3>
+        <div class="deg">B.E. Information Technology · Savitribai Phule Pune University</div>
+        <div class="gpa"><b data-dec="9.0">0.00</b><span>/ 10 CGPA</span></div>
+        <div class="bar"><i data-w="90"></i></div>
+        <p class="loc">Pune, India · Operating systems, DSA, networks, databases, OOP</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap rv">
+    <div class="eyebrow" style="justify-content:center">Contact</div>
+    <h2>Let's build <span class="serif grad">something</span>.</h2>
+    <p class="sub">Open to software, ML and AI engineering roles in the US. The fastest way to reach me is email.</p>
+    <button class="mail" id="mail">sakshi.bhavsar15@gmail.com <span class="cp">copy</span></button>
+    <div class="clinks">
+      <a href="mailto:sakshi.bhavsar15@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Gmail</a>
+      <a href="https://www.linkedin.com/in/sakshi-bhavsar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>LinkedIn</a>
+      <a href="https://github.com/SakshiBhavsar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg>GitHub</a>
+      <a href="https://leetcode.com/u/sakshi_bhavsar/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m14 4-8 8 8 8M9 12h11"/></svg>LeetCode</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Sakshi Bhavsar</span><span class="mono">Designed &amp; built with care · New York</span></div></footer>
+<div class="toast" id="toast">Email copied ✓</div>
+
+<script>
+(() => {
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+$('#yr').textContent = new Date().getFullYear();
+
+/* split name into letters */
+let d = 0;
+$$('#name .w:not(.grad)').forEach(w => {
+  const t = w.textContent; w.textContent = '';
+  [...t].forEach(c => { const s = document.createElement('span'); s.className = 'ch'; s.textContent = c; s.style.animationDelay = (0.15 + d++ * 0.045) + 's'; w.appendChild(s); });
+});
+
+/* typed roles */
+const roles = ['AI-native genomics platforms.', 'self-healing data pipelines.', 'distributed backend systems.', 'agentic AI that ships.', 'efficient, pruned transformers.'];
+const el = $('#typed'); let ri = 0, ci = 0, del = false;
+(function type() {
+  const r = roles[ri];
+  el.textContent = r.slice(0, ci);
+  if (!del && ci === r.length) { del = true; return setTimeout(type, 1800); }
+  if (del && ci === 0) { del = false; ri = (ri + 1) % roles.length; }
+  ci += del ? -1 : 1;
+  setTimeout(type, del ? 28 : 55);
+})();
+
+/* marquee */
+const mq = ['Oracle', 'GeneGenius', 'NYU Tandon', 'Bajaj Finserv', 'NASA USSRC', 'IEEE', 'Stanford ML', 'Google Cloud'];
+$('#mq').innerHTML = [...mq, ...mq].map(x => `<span>${x}</span>`).join('');
+
+/* skills */
+const S = {
+  ai: ['LLMs', 'RAG', 'AI Agents', 'LangGraph', 'LangChain', 'PyTorch', 'TensorFlow', 'Keras', 'Hugging Face', 'Scikit-learn', 'Fine-tuning', 'Model Optimization', 'Evaluation', 'YOLOv8', 'FAISS', 'NumPy', 'Pandas', 'CUDA'],
+  lang: ['Python', 'Java', 'TypeScript', 'JavaScript', 'Go', 'C++', 'SQL', 'Scala'],
+  be: ['FastAPI', 'Spring Boot', 'Node.js', 'React', 'REST APIs', 'GraphQL', 'Microservices', 'Kafka', 'Apache Spark', 'Flask', 'JUnit', 'OpenTelemetry'],
+  cloud: ['AWS', 'GCP', 'Azure', 'Oracle Cloud (OCI)', 'Docker', 'Kubernetes', 'CI/CD', 'Git', 'Linux', 'Bash'],
+  db: ['PostgreSQL', 'MySQL', 'Oracle DB', 'PL/SQL', 'MongoDB', 'Redis', 'pgvector']
+};
+const lab = { ai: 'ai/ml', lang: 'lang', be: 'backend', cloud: 'cloud', db: 'db' };
+$('#skills').innerHTML = Object.entries(S).flatMap(([k, a]) => a.map(x => `<span class="sk" data-c="${k}">${x}<i>${lab[k]}</i></span>`)).join('');
+$$('#filters button').forEach(b => b.onclick = () => {
+  $$('#filters button').forEach(x => x.classList.toggle('on', x === b));
+  const f = b.dataset.f;
+  $$('.sk').forEach(s => s.classList.toggle('off', f !== 'all' && s.dataset.c !== f));
+});
+
+/* experience tabs */
+const tabs = $$('.tab'), panels = $$('.panel');
+tabs.forEach(t => t.onclick = () => {
+  tabs.forEach(x => x.classList.toggle('on', x === t));
+  panels.forEach((p, i) => p.classList.toggle('on', i == t.dataset.p));
+});
+
+/* counters */
+function count(e) {
+  const end = +e.dataset.count, dur = 1600, t0 = performance.now();
+  const step = n => { const p = Math.min((n - t0) / dur, 1), v = Math.round(end * (1 - Math.pow(1 - p, 3))); e.textContent = v.toLocaleString(); if (p < 1) requestAnimationFrame(step); };
+  reduce ? e.textContent = end.toLocaleString() : requestAnimationFrame(step);
+}
+function dec(e) {
+  const end = +e.dataset.dec, dur = 1600, t0 = performance.now();
+  const step = n => { const p = Math.min((n - t0) / dur, 1); e.textContent = (end * (1 - Math.pow(1 - p, 3))).toFixed(2); if (p < 1) requestAnimationFrame(step); };
+  reduce ? e.textContent = end.toFixed(2) : requestAnimationFrame(step);
+}
+
+/* reveal */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  const t = e.target; t.classList.add('in');
+  t.querySelectorAll('[data-count]').forEach(count);
+  t.querySelectorAll('[data-dec]').forEach(dec);
+  t.querySelectorAll('[data-w]').forEach(b => b.style.width = b.dataset.w + '%');
+  io.unobserve(t);
+}), { threshold: 0.15 });
+$$('.rv').forEach((e, i) => { e.style.transitionDelay = (e.parentElement.classList.contains('proj') ? (i % 3) * 0.08 : 0) + 's'; io.observe(e); });
+
+/* nav: progress, active link, burger */
+const links = $$('nav .links a'), secs = links.map(a => $(a.getAttribute('href')));
+addEventListener('scroll', () => {
+  const h = document.documentElement; $('#prog').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  let cur = -1; secs.forEach((s, i) => { if (s.getBoundingClientRect().top < innerHeight * 0.4) cur = i; });
+  links.forEach((a, i) => a.classList.toggle('on', i === cur));
+}, { passive: true });
+$('#burger').onclick = () => $('#nav').classList.toggle('open');
+links.forEach(a => a.addEventListener('click', () => $('#nav').classList.remove('open')));
+
+/* copy email */
+$('#mail').onclick = async () => {
+  try { await navigator.clipboard.writeText('sakshi.bhavsar15@gmail.com'); const t = $('#toast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1800); }
+  catch { location.href = 'mailto:sakshi.bhavsar15@gmail.com'; }
+};
+
+const fine = matchMedia('(pointer: fine)').matches;
+if (!reduce && fine) {
+  /* cursor glow */
+  const g = $('#glow');
+  addEventListener('pointermove', e => { g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px'; });
+  /* portrait tilt */
+  const P = $('#portrait'), F = $('#frame');
+  P.addEventListener('pointermove', e => { const r = P.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; F.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 14}deg)`; });
+  P.addEventListener('pointerleave', () => F.style.transform = '');
+  /* project card spotlight + tilt */
+  $$('.pc').forEach(c => {
+    c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top; c.style.setProperty('--mx', x + 'px'); c.style.setProperty('--my', y + 'px'); c.style.transform = `perspective(900px) rotateY(${(x / r.width - .5) * 6}deg) rotateX(${-(y / r.height - .5) * 6}deg)`; });
+    c.addEventListener('pointerleave', () => c.style.transform = '');
+  });
+  /* magnetic buttons */
+  $$('.btn, .socials a').forEach(b => {
+    b.addEventListener('pointermove', e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px, ${(e.clientY - r.top - r.height / 2) * .35}px)`; });
+    b.addEventListener('pointerleave', () => b.style.transform = '');
+  });
+}
+
+/* starfield + constellation + drifting DNA helix */
+const cv = $('#sky'), cx = cv.getContext('2d');
+let W, H, stars = [], mouse = { x: -1e4, y: -1e4 }, dpr = Math.min(devicePixelRatio || 1, 2);
+function size() {
+  W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px'; cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const n = Math.min(140, Math.floor(W * H / 9000));
+  stars = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.3 + .3, vx: (Math.random() - .5) * .12, vy: (Math.random() - .5) * .12, t: Math.random() * 6.28 }));
+}
+size(); addEventListener('resize', size);
+addEventListener('pointermove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+let T = 0;
+function frame() {
+  T += .012;
+  cx.clearRect(0, 0, W, H);
+  for (const s of stars) {
+    s.x += s.vx; s.y += s.vy; s.t += .02;
+    if (s.x < 0) s.x = W; if (s.x > W) s.x = 0; if (s.y < 0) s.y = H; if (s.y > H) s.y = 0;
+    const dx = s.x - mouse.x, dy = s.y - mouse.y, dd = Math.hypot(dx, dy);
+    cx.globalAlpha = .35 + Math.sin(s.t) * .25;
+    cx.fillStyle = '#cdd5ff'; cx.beginPath(); cx.arc(s.x, s.y, s.r, 0, 6.28); cx.fill();
+    if (dd < 160) { cx.globalAlpha = (1 - dd / 160) * .5; cx.strokeStyle = '#8b9cff'; cx.lineWidth = .6; cx.beginPath(); cx.moveTo(s.x, s.y); cx.lineTo(mouse.x, mouse.y); cx.stroke(); }
+  }
+  /* helix along the right edge, scrolls with page */
+  const hx = W > 980 ? W - 70 : W - 30, off = scrollY * .15;
+  for (let i = 0; i < 46; i++) {
+    const y = i * 22 - (off % 22) - 20, ph = i * .38 + T + off / 22 * .38, a = Math.sin(ph) * 22, z = Math.cos(ph);
+    const x1 = hx + a, x2 = hx - a;
+    cx.globalAlpha = .08; cx.strokeStyle = '#ffffff'; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(x1, y); cx.lineTo(x2, y); cx.stroke();
+    cx.globalAlpha = .25 + z * .2; cx.fillStyle = '#5eead4'; cx.beginPath(); cx.arc(x1, y, 2.2 + z * .8, 0, 6.28); cx.fill();
+    cx.globalAlpha = .25 - z * .2; cx.fillStyle = '#c084fc'; cx.beginPath(); cx.arc(x2, y, 2.2 - z * .8, 0, 6.28); cx.fill();
+  }
+  cx.globalAlpha = 1;
+  if (!reduce) requestAnimationFrame(frame);
+}
+frame();
+})();
+</script>
+</body>
+</html>
