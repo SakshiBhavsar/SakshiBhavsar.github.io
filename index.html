@@ -263,6 +263,21 @@ h2 .serif{font-style:italic}
 .nasa h3{font-size:clamp(30px,4vw,50px);line-height:1.02;letter-spacing:-.03em;font-weight:600;margin:14px 0 16px}
 .nasa h3 .serif{font-style:italic;color:var(--a4)}
 .nasa p{color:#c6cbe6;max-width:520px}
+.nasa{align-items:stretch}
+.press-h{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;color:var(--a4);text-transform:uppercase;margin:30px 0 14px}
+.press{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.clip{display:flex;flex-direction:column;gap:6px;padding:16px 18px;border-radius:14px;background:#f4efe3;color:#1d1a14;box-shadow:0 18px 40px -22px #000;transform:rotate(var(--r,0deg));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.clip:nth-child(1){--r:-1.2deg}.clip:nth-child(2){--r:.8deg}.clip:nth-child(3){--r:1deg}.clip:nth-child(4){--r:-.8deg}
+.clip:hover{transform:rotate(0) translateY(-4px)}
+.clip .pub-n{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7a5b26;border-bottom:1px solid #1d1a1433;padding-bottom:6px}
+.clip b{font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.15}
+.clip em{font-style:normal;font-family:var(--mono);font-size:11px;color:#7a5b26;margin-top:auto}
+.ussrc{position:relative;border-radius:22px;overflow:hidden;min-height:420px;border:1px solid var(--line2);box-shadow:0 40px 80px -40px #000}
+.ussrc>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.nasa:hover .ussrc>img{transform:scale(1.06)}
+.ussrc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#0a0f22e6)}
+.ussrc figcaption{position:absolute;left:16px;right:16px;bottom:16px;z-index:1;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11.5px}
+.ussrc figcaption img{height:40px;width:auto;background:#fff;border-radius:8px;padding:4px 6px}
 .big17{font-size:clamp(90px,13vw,170px);font-weight:600;letter-spacing:-.06em;line-height:.85}
 .big17 small{display:block;font-size:14px;letter-spacing:0;font-weight:400;color:var(--muted);margin-top:14px;font-family:var(--mono)}
 .orbit{position:relative;width:200px;height:200px;flex:none}
@@ -464,6 +479,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   .scroll-hint{display:none}
   .hob{grid-template-columns:1fr 1fr}
   .certs{grid-template-columns:1fr}
+  .press{grid-template-columns:1fr}
+  .ussrc{min-height:320px}
   .hb:last-child{grid-column:span 2}
   .pol{gap:18px}
   .pc2 b{font-size:21px}
@@ -515,7 +532,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <div class="ring"></div>
       <div class="frame" id="frame"><img src="assets/sakshi.jpg" alt="Portrait of Sakshi Bhavsar"></div>
       <div class="chip c1"><em>🧬</em><div>Forward Deployed Eng.<small>GeneGenius · now</small></div></div>
-      <div class="chip c2"><em>🚀</em><div>NASA USSRC<small>1 of 17 from India</small></div></div>
+      <div class="chip c2"><em>🚀</em><div>NASA USSRC<small>Huntsville, Alabama</small></div></div>
       <div class="chip c3"><em>🎓</em><div>M.S. Computer Eng.<small>NYU Tandon · 3.74</small></div></div>
     </div>
   </div>
@@ -532,7 +549,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <h2>Systems that <span class="serif grad">heal themselves</span>, models that ship.</h2>
       <p>I like the parts of software that have to keep working when nobody is looking. At <strong>Oracle</strong> I built backend services behind enterprise ETL for 1000+ customers, including a self-healing recovery mechanism that cut pipeline stall time by 95%.</p>
       <p>Today at <strong>GeneGenius</strong>, an early-stage healthcare startup, I lead work on an AI-native genomics platform that turns clinical variant analysis, work that takes years of specialist training, into evidence-traceable answers in under five minutes.</p>
-      <p>Along the way: secure Unified Payments Interface systems at <strong>Bajaj Finserv</strong>, teaching computer architecture to 500+ students at <strong>NYU</strong>, two research papers, and a trip to <strong>NASA's U.S. Space &amp; Rocket Center</strong> as one of 17 students selected from India.</p>
+      <p>Along the way: secure Unified Payments Interface systems at <strong>Bajaj Finserv</strong>, teaching computer architecture to 500+ students at <strong>NYU</strong>, two research papers, and a trip to <strong>NASA's U.S. Space &amp; Rocket Center</strong> in Alabama, selected from students across India.</p>
       <div class="focus"><span>Distributed systems</span><span>Data pipelines</span><span>Applied ML / LLMs</span><span>Agentic AI</span><span>Backend APIs</span><span>MLOps</span></div>
     </div>
     <div class="stats rv">
@@ -776,12 +793,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <div>
         <div class="k">HONEYWELL LEADERSHIP CHALLENGE ACADEMY</div>
         <h3>Selected for <span class="serif">NASA's</span> U.S. Space &amp; Rocket Center <span class="rocket">🚀</span></h3>
-        <p>One of 17 students chosen from across India for the Honeywell Leadership Challenge Academy at the U.S. Space &amp; Rocket Center in Huntsville, Alabama: space-mission simulations, rocket engineering challenges and leadership training alongside students from around the world.</p>
+        <p>Selected from across India for the Honeywell Leadership Challenge Academy at the U.S. Space &amp; Rocket Center in Huntsville, Alabama in 2019: two weeks living like an astronaut, with space-mission simulations, rocket engineering challenges and leadership training alongside students from around the world.</p>
+        <div class="press-h">In the news</div>
+        <div class="press">
+          <a class="clip" href="https://www.punekarnews.in/17-high-schoolers-from-india-including-8-from-pune-live-like-astronauts-for-two-weeks-at-u-s-space-camp-3/" target="_blank" rel="noopener"><span class="pub-n">Punekar News</span><b>High schoolers from India, including 8 from Pune, live like astronauts at U.S. Space Camp</b><em>Read article ↗</em></a>
+          <a class="clip" href="https://indiannewz.wordpress.com/2019/04/30/17-high-schoolers-from-india-live-like-astronauts-for-two-weeks-at-u-s-space-camp/" target="_blank" rel="noopener"><span class="pub-n">Indian Newz · Apr 2019</span><b>High schoolers from India live like astronauts for two weeks at U.S. Space Camp</b><em>Read article ↗</em></a>
+          <a class="clip" href="https://www.linkedin.com/in/sakshi-bhavsar/details/featured/" target="_blank" rel="noopener"><span class="pub-n">Sakal Times</span><b>Eight students from the city visit USSRC</b><em>View clipping ↗</em></a>
+          <a class="clip" href="https://www.linkedin.com/in/sakshi-bhavsar/details/featured/" target="_blank" rel="noopener"><span class="pub-n">Vartahar · 2 May 2019</span><b>Students from India get an astronaut experience</b><em>View clipping ↗</em></a>
+        </div>
       </div>
-      <div style="display:flex;align-items:center;gap:30px;justify-content:center">
-        <div class="big17"><span data-count="17">0</span><small>students selected from India</small></div>
-        <div class="orbit"><div class="o"><i></i></div><div class="o"><i></i></div><div class="core">🛰️</div></div>
-      </div>
+      <figure class="ussrc"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Saturn_V_Exterior_Display_at_the_US_Space_%26_Rocket_Center_in_Alabama_USA.jpg/960px-Saturn_V_Exterior_Display_at_the_US_Space_%26_Rocket_Center_in_Alabama_USA.jpg" alt="Saturn V rocket at the U.S. Space &amp; Rocket Center, Huntsville, Alabama" loading="lazy"><figcaption><img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/U.S._Space_%26_Rocket_Center_logo.png" alt="U.S. Space &amp; Rocket Center logo"><span>Huntsville, Alabama · 2019</span></figcaption></figure>
     </div>
     <div class="cols">
       <div class="box rv">
@@ -799,7 +820,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <div class="cert"><div class="lg"><img src="https://www.google.com/s2/favicons?domain=umich.edu&sz=128" alt=""></div><div><b>Structured Query Language (SQL)</b><span>University of Michigan</span></div></div>
         <div class="cert"><div class="lg"><img src="https://www.google.com/s2/favicons?domain=illinois.edu&sz=128" alt=""></div><div><b>Finance</b><span>University of Illinois Urbana-Champaign</span></div></div>
         <div class="cert"><div class="lg"><b class="pict">PICT</b></div><div><b>Object Oriented Programming using C++</b><span>Pune Institute of Computer Technology</span></div></div>
-        <div class="cert"><div class="lg" style="background:#0b1f4d;font-size:22px">🚀</div><div><b>Honeywell Leadership Challenge Academy</b><span>U.S. Space &amp; Rocket Center</span></div></div></div>
+        <div class="cert"><div class="lg"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/U.S._Space_%26_Rocket_Center_logo.png" alt="" style="width:38px"></div><div><b>Honeywell Leadership Challenge Academy</b><span>U.S. Space &amp; Rocket Center</span></div></div></div>
       </div>
     </div>
   </div>
